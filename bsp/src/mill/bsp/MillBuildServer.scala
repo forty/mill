@@ -71,6 +71,13 @@ class MillBuildServer(evaluator: Evaluator, bspVersion: String, serverVersion: S
       new WorkspaceBuildTargetsResult(targets.asJava)
     }
 
+  override def buildTargetDependencyModules(params: DependencyModulesParams): CompletableFuture[DependencyModulesResult] = {
+    // TODO Actually implement buildTargetDependencyModules
+    handleExceptions {
+      new DependencyModulesResult(Nil.asJava);
+    }
+  }
+
   override def buildTargetSources(sourcesParams: SourcesParams): CompletableFuture[SourcesResult] =
     handleExceptions {
       val modules = getModules(evaluator)
